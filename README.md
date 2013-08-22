@@ -24,11 +24,11 @@ Alias `staccato`.
 ## staccato.bind
 
 ```typescript
-.bind(name, value(args))
+.bind(name, value(args) [, priotiry])
 ```
 
 ## staccato.bindSingleton
 
 ```
-.bindSingleton(name, value(args))
+.bindSingleton(name, value(args) [, priotiry])
 ```
