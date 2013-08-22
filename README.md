@@ -18,17 +18,17 @@ Alias `staccato`.
 ## staccato.injection
 
 ```typescript
-.injection(name [, defaultValue(args)] [, args[]])
+.injection<T>(name: string [, defaultValue: (args) => T] [, args: any[]])
 ```
 
 ## staccato.bind
 
 ```typescript
-.bind(name, value(args) [, priotiry])
+.bind<T>(name: string, value: (args) => T [, priotiry: number])
 ```
 
 ## staccato.bindSingleton
 
 ```
-.bindSingleton(name, value(args) [, priotiry])
+.bindSingleton<T>(name: string, value: (args) => T [, priotiry: number])
 ```
