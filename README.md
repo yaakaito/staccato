@@ -18,7 +18,7 @@ Alias `staccato`.
 ## staccato.injection
 
 ```typescript
-.injection<T>(name: string [, defaultValue: (args) => T] [, args: any[]])
+.inject<T>(name: string [, defaultValue: (args) => T] [, args: any[]])
 ```
 
 ## staccato.bind
