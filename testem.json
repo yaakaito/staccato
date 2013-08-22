@@ -1,0 +1,13 @@
+{
+    "framework" : "mocha+chai",
+    "before_tests" : "grunt compile",
+    "src_files" : [
+        "src/**/*.ts",
+        "test/**/*.ts"
+    ],
+    "serve_files" : [
+        "bower_componets/jquery/jquery.js",
+        "compiled/src/index.js",
+        "compiled/test/**/*.js"
+    ]
+}
