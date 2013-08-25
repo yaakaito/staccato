@@ -3,7 +3,7 @@ DI for TypeScript
 
 ```typescript
 class Hoge {
-    private value = stacc.injection('value', (a) => new Value(a), ['A'])
+    private value = stacc.inject('value', (a) => new Value(a), ['A'])
 }
  
 stacc.bind('value', (a) => new MockValue(a))
