@@ -11,7 +11,7 @@ module.exports = (grunt) ->
                     module: 'commonjs'
                     target: 'es5'
                     # sourcemap: true
-                    # declaration: true
+                    declaration: true
             test:
                 src: ['test/**/*.ts']
                 dest: 'compiled'

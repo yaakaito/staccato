@@ -1,4 +1,10 @@
-var staccato = stacc = (function() {
+interface StaccatoStatic {
+    inject: <T>(key: string, defaultValue?: (...args: any[]) => T, args?: any[]) => T;
+    bind: <T>(key: string, value: (...args: any[]) => T, priority?: number) => void;
+    bindSingleton: <T>(key: string, value: (...args: any[]) => T, priority?: number) => void;
+}
+
+var staccato: StaccatoStatic = (function() {
     "use strict"
 
     var map = {}
@@ -9,7 +15,7 @@ var staccato = stacc = (function() {
         bindSingleton: bindSingleton
     }
 
-    function inject(key, defaultValue, args) {
+    function inject<T>(key: string, defaultValue?: (...args: any[]) => T, args?: any[]): T {
         if (map[key] != null)
             return F(map[key].value, args)
         else if (defaultValue)
@@ -17,25 +23,25 @@ var staccato = stacc = (function() {
         else
             return undefined
 
-        function F(f, args) {
+        function F(f, args): T {
             return f.apply(this, args ? args.slice() : [])
         }
     }
 
-    function bind(key, value, priority) {
+    function bind<T>(key: string, value: (...args: any[]) => T, priority?: number): void {
         map[key] = result(map[key], {
             value: value,
             priority: priority
         })
 
-        function result(left, right) {
+        function result(left, right): T {
             if (!left) 
                 return right
             else
                 return resultByPriority(left, right)
         }
 
-        function resultByPriority(left, right) {
+        function resultByPriority(left, right): T {
             if (left.priority == null)
                 return right
             else if (left.priority != null && right.priority == null)
@@ -46,7 +52,7 @@ var staccato = stacc = (function() {
         }
     }
 
-    function bindSingleton(key, value, priority) {
+    function bindSingleton<T>(key: string, value: (...args: any[]) => T, priority?: number): void {
         var cache
         bind(key, function() {
             if (cache !== undefined)
@@ -56,3 +62,5 @@ var staccato = stacc = (function() {
         }, priority)
     }
 })()
+
+var stacc = staccato;
