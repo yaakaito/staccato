@@ -15,7 +15,7 @@ stacc.bind('value', (a) => new MockValue(a))
 
 Alias `staccato`.
 
-## staccato.injection
+## staccato.inject
 
 ```typescript
 .inject<T>(name: string [, defaultValue: (args) => T] [, args: any[]])
