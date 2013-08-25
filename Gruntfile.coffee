@@ -6,7 +6,7 @@ module.exports = (grunt) ->
                 src: ['src/**/*.ts']
                 # dest: 'compiled'
                 # src: ['src/index.ts']
-                dest: 'compiled/src/index.js'
+                dest: 'compiled/src/staccato.js'
                 options:
                     module: 'commonjs'
                     target: 'es5'
