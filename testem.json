@@ -7,7 +7,7 @@
     ],
     "serve_files" : [
         "bower_componets/jquery/jquery.js",
-        "compiled/src/index.js",
+        "compiled/src/staccato.js",
         "compiled/test/**/*.js"
     ]
 }
